@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <form action="/rtinfo" method="post">
+            음식점 명: <input type="text" name="restaurantname">
+            <% if(newUser){ %>
+                <input type="text" name="id" value=<%=newUser%> hidden>
+            <% } %>
+            업종: <select name="type">
+                <option value="한식">한식</option>
+                <option value="중식">중식</option>
+                <option value="일식">일식</option>
+                <option value="햄버거">햄버거</option>
+                <option value="피자">피자</option>
+                <option value="치킨">치킨</option>
+                <option value="야식">야식</option>
+                <option value="기타">기타</option>
+            </select>
+            주소: <input type="text" id="address_kakao" name="address" readonly>
+            상세주소 <input type="text" name="address_detail">
+            가게설명 <input type="text" name="explantion">
+            <input type="submit" value="저장">
+        </form>
+    </p>
+</body>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+window.onload = function(){
+    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
+            oncomplete: function(data) { //선택시 입력값 세팅
+                document.getElementById("address_kakao").value = data.address; // 주소 넣기
+                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+            }
+        }).open();
+    });
+}
+</script>
+</html>

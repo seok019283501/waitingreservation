@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>index</title>
+</head>
+<body>
+    <div class="header">
+        <a class="logo" href="/">
+            waiting
+        </a>
+        <nav>
+            <ul class="nav-items">
+                <% if(id){ %>
+                    <li>id: <%= id %></li>
+                    <li><form action="/logout" method="get">
+                        <input type="submit" value="로그아웃">
+                    </form></li>
+                    <li><a href="/mypage/<%= id %>">mypage</a></li>
+                <% }else{ %>
+                    <li><a href="/login">로그인</a></li>
+                    <li><a href="/register">회원가입</a></li>
+                <% } %>
+                <li><input type="text"></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content-wrap">
+        <section>
+            <% ko.forEach(element => {%>
+            
+                <article>
+                    <img src="http://localhost:3000/images/<%=element.picture%>" alt="gg" class="mainpic">
+                    <a href="/waiting/<%=element.resnum%>" class="title"><%=element.restaurantname%></a>
+                </article>
+            
+            <% }); %>
+        </section>
+        <section>
+            <% ch.forEach(element => {%>
+                
+                    <article>
+                        <img src="http://localhost:3000/images/<%=element.picture%>" alt="gg" class="mainpic">
+                        <a href="/waiting/<%=element.resnum%>" class="title"><%=element.restaurantname%></a>
+                    </article>
+                
+            <% }); %>
+        </section>
+        <section>
+            <% jp.forEach(element => {%>
+                
+                    <article>
+                        <img src="http://localhost:3000/images/<%=element.picture%>" alt="gg" class="mainpic">
+                        <a href="/waiting/<%=element.resnum%>" class="title"><%=element.restaurantname%></a>
+                    </article>
+                
+            <% }); %>
+        </section>
+        <section>
+            <% hb.forEach(element => {%>
+                
+                    <article>
+                        <img src="http://localhost:3000/images/<%=element.picture%>" alt="gg"class="mainpic">
+                        <a href="/waiting/<%=element.resnum%>" class="title"><%=element.restaurantname%></a>
+                    </article>
+                
+            <% }); %>
+        </section>
+        <section>
+            <% pz.forEach(element => {%>
+                
+                    <article>
+                        <img src="http://localhost:3000/images/<%=element.picture%>" alt="gg" class="mainpic">
+                        <a href="/waiting/<%=element.resnum%>" class="title"><%=element.restaurantname%></a>
+                    </article>
+            <% }); %>
+        </section>
+        <section>
+            <% ck.forEach(element => {%>
+                
+                    <article>
+                        <img src="http://localhost:3000/images/<%=element.picture%>" alt="gg" class="mainpic">
+                        <a href="/waiting/<%=element.resnum%>" class="title"><%=element.restaurantname%></a>
+                    </article>
+            <% }); %>
+        </section>
+        <section>
+            <% etc.forEach(element => {%>
+                
+                    <article>
+                        <img src="http://localhost:3000/images/<%=element.picture%>" alt="gg"class="mainpic">
+                        <a href="/waiting/<%=element.resnum%>" class="title"><%=element.restaurantname%></a>
+                    </article>
+                
+            <% }); %>
+        </section>
+    </div>
+    
+    
+</body>
+</html>
